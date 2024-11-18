@@ -1,14 +1,52 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import Spline from '@splinetool/react-spline';
+import ScrollCards from './ScrollCards';
 
 const MainContent = () => {
-  useEffect(() => {
-    // Register ScrollTrigger plugin
-    gsap.registerPlugin(ScrollTrigger);
+  const cursorRef = useRef(null);
 
-    // Initial heading animation
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    const cursor = cursorRef.current;
+
+    // Basic cursor movement
+    const handleMouseMove = (e) => {
+      if (cursor) {
+        cursor.style.left = e.clientX + "px";
+        cursor.style.top = e.clientY + "px";
+      }
+    };
+
+    // Handle hover effects for text elements
+    const handleTextHover = () => {
+      if (cursor) {
+        cursor.style.height = "100px";
+        cursor.style.width = "100px";
+        cursor.style.mixBlendMode = "difference";
+      }
+    };
+
+    // Handle mouse leave from text elements
+    const handleTextLeave = () => {
+      if (cursor) {
+        cursor.style.height = "20px";
+        cursor.style.width = "20px";
+      }
+    };
+
+    // Add event listeners
+    document.addEventListener("mousemove", handleMouseMove);
+
+    // Add hover effects to all text elements
+    const textElements = document.querySelectorAll('h1, h2, h3, p, span, button, li');
+    textElements.forEach(element => {
+      element.addEventListener("mouseenter", handleTextHover);
+      element.addEventListener("mouseleave", handleTextLeave);
+    });
+
+    // Your existing GSAP animations...
     gsap.fromTo('.heading', { opacity: 0 }, { opacity: 1, duration: 2 });
 
     // Background color transition
@@ -18,7 +56,7 @@ const MainContent = () => {
         start: 'top center', 
         end: 'top top',
         scrub: 2.5,
-        markers: true, // Enable for debugging
+        markers: true,
         toggleActions: 'play none none reverse'
       },
       backgroundColor: '#FAFAFA',
@@ -39,15 +77,26 @@ const MainContent = () => {
         });
       }
     });
+
+    // Cleanup
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+      textElements.forEach(element => {
+        element.removeEventListener("mouseenter", handleTextHover);
+        element.removeEventListener("mouseleave", handleTextLeave);
+      });
+    };
   }, []);
 
   return (
     <div className="relative h-screen bg-white transition-colors">
+      {/* Custom Cursor */}
+      <div className="cursor" ref={cursorRef}></div>
+
       {/* Spline container */}
       <div className="absolute inset-0 w-full h-full">
-        <Spline
-          scene="https://prod.spline.design/7XDG-4oV648g1hYb/scene.splinecode"
-        />
+      <Spline scene="https://prod.spline.design/TnbbJJ60ykPOykTn/scene.splinecode" />
+
       </div>
       
       {/* Content overlay - added pointer-events-none */}
@@ -86,6 +135,9 @@ const MainContent = () => {
           </div>
         </div>
       </div>
+
+      {/* Add ScrollCards component */}
+      <ScrollCards />
     </div>
   );
 };

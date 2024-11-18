@@ -4,7 +4,7 @@ import gsap from 'gsap';
 const Navbar = () => {
   const logoRef = useRef(null);
   const linksRef = useRef([]);
-
+  
   useEffect(() => {
     // Small delay to ensure DOM elements are ready
     const timer = setTimeout(() => {
