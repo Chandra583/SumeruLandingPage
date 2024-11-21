@@ -4,6 +4,8 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import Spline from '@splinetool/react-spline';
 import ScrollCards from './ScrollCards';
 import MovieSection from './MovieSection';
+import OurWorkSection from './OurWorkSection';
+
 
 const MainContent = () => {
   const cursorRef = useRef(null);
@@ -88,6 +90,9 @@ const MainContent = () => {
 
       {/* Add ScrollCards component */}
       <ScrollCards />
+      {/* OurWorkSection component */}
+     <OurWorkSection/>
+
 
       <div className="c-noise"></div>
       <div className="c-old"></div>

@@ -88,9 +88,9 @@ const InnerLine = styled.div`
   flex-direction: column;
   gap: 1vw;
   width: 100%;
-  height: 200vh;
+  height: 400vh;
   ${props => props.isSecond && `
-    margin-top: -100vh;
+    margin-top: -200vh;
   `}
 `;
 
@@ -101,6 +101,7 @@ const Card = styled.div`
   background-size: cover;
   background-position: center;
   background-image: url(${props => props.bgImage});
+  opacity: 0;
 `;
 
 const MovieSection = () => {
@@ -118,12 +119,19 @@ const MovieSection = () => {
       scrollTrigger: {
         trigger: "#movie-section",
         start: "30% 50%",
-        end: "80% 50%",
-        scrub: 0.5,
+        end: "80% 60%",
+        markers: true,
+        scrub: 1,
         onUpdate: (self) => {
           const progress = self.progress;
           const section = document.getElementById('movie-section');
           section.style.backgroundColor = gsap.utils.interpolate('#0a0a0a', '#FAFAFA', progress);
+          
+          // Update opacity of all Card elements
+          const cards = section.getElementsByClassName('image-card');
+          Array.from(cards).forEach(card => {
+            card.style.opacity = progress;
+          });
         }
       }
     });
@@ -134,17 +142,17 @@ const MovieSection = () => {
         trigger: "#movie-section",
         markers: true,
         start: "50% 50%",
-        end: "150% 50%",
+        end: "200% 80%",
         scrub: 1.5,
         pin: true
       }
     });
 
     tl.to(lineOneRef.current, {
-      marginTop: "-150vh",
+      marginTop: "-300vh",
     }, 'baba')
     .to(lineTwoRef.current, {
-      marginTop: "50vh",
+      marginTop: "-0vh",
     }, 'baba');
 
     // Cleanup
@@ -155,19 +163,28 @@ const MovieSection = () => {
 
   const images = {
     line1: [
-      "https://www.cinecasero.uy/img/hmd/hmd-1.jpg",
-      "https://www.cinecasero.uy/img/hmd/hmd-2.jpg",
-      "https://www.cinecasero.uy/img/hmd/hmd-3.jpg",
-      "https://www.cinecasero.uy/img/hmd/hmd-4.jpg",
+      "https://media.licdn.com/dms/image/v2/D5622AQFLWsRtUYt9Bg/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1718451116734?e=1735171200&v=beta&t=8IJpTmVLqbSa1zKWckyVC8M71idothUGwHS6jqVjM08",
+      "https://media.licdn.com/dms/image/v2/D5622AQG4RHowO1gD-Q/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1718451122237?e=1735171200&v=beta&t=dZymWYmDadsK17aBX4IokeHSrwCtoSn2B2mNT7lH-G4",
+      "https://media.licdn.com/dms/image/v2/D4E22AQEKnczZtZwJPg/feedshare-shrink_1280/feedshare-shrink_1280/0/1726136863691?e=1735171200&v=beta&t=tNnQ2IfJalTz1Lb52eMrcXLpBVGMSTHYJWWlQPnO3N8",
+      "https://media.licdn.com/dms/image/v2/D5622AQHgkQ-wpeJgMA/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1718451109980?e=1735171200&v=beta&t=wWJmWiLxt13f4z3sCFS7ANw-v6If10lIx5UJYawuQl0",
+      "https://sumerudigital.com/wp-content/uploads/2024/06/c71c38c1-0845-4620-a89c-12127d43502f.jpg",
+      "https://sumerudigital.com/wp-content/uploads/2024/06/a77fd91d-293f-4612-b9e1-e4f2d6d5e803.jpg",
+      "https://sumerudigital.com/wp-content/uploads/2024/06/d8adb02f-5de2-4c4a-9142-14e1c4e0097a.jpg",
+      "https://sumerudigital.com/wp-content/uploads/2024/06/fe0fd97c-4e35-47b4-b878-723d4a2fd6be.jpg",
+      "https://sumerudigital.com/wp-content/uploads/2024/06/11825bdf-fb4c-420e-bb42-ab940a166721.jpg",
       "https://www.cinecasero.uy/img/hmd/hmd-5.jpg",
-      
     ],
     line2: [
-      "https://www.cinecasero.uy/img/hmd/hmd-6.jpg",
-      "https://www.cinecasero.uy/img/hmd/hmd-7.jpg",
-      "https://www.cinecasero.uy/img/hmd/hmd-8.jpg",
-      "https://www.cinecasero.uy/img/hmd/hmd-9.jpg",
-      "https://www.cinecasero.uy/img/hmd/hmd-10.jpg"
+      "https://media.licdn.com/dms/image/v2/D5622AQFLWsRtUYt9Bg/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1718451116734?e=1735171200&v=beta&t=8IJpTmVLqbSa1zKWckyVC8M71idothUGwHS6jqVjM08",
+      "https://media.licdn.com/dms/image/v2/D5622AQG4RHowO1gD-Q/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1718451122237?e=1735171200&v=beta&t=dZymWYmDadsK17aBX4IokeHSrwCtoSn2B2mNT7lH-G4",
+      "https://media.licdn.com/dms/image/v2/D4E22AQEKnczZtZwJPg/feedshare-shrink_1280/feedshare-shrink_1280/0/1726136863691?e=1735171200&v=beta&t=tNnQ2IfJalTz1Lb52eMrcXLpBVGMSTHYJWWlQPnO3N8",
+      "https://media.licdn.com/dms/image/v2/D5622AQHgkQ-wpeJgMA/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1718451109980?e=1735171200&v=beta&t=wWJmWiLxt13f4z3sCFS7ANw-v6If10lIx5UJYawuQl0",
+      "https://sumerudigital.com/wp-content/uploads/2024/06/c71c38c1-0845-4620-a89c-12127d43502f.jpg",
+      "https://sumerudigital.com/wp-content/uploads/2024/06/a77fd91d-293f-4612-b9e1-e4f2d6d5e803.jpg",
+      "https://sumerudigital.com/wp-content/uploads/2024/06/d8adb02f-5de2-4c4a-9142-14e1c4e0097a.jpg",
+      "https://sumerudigital.com/wp-content/uploads/2024/06/fe0fd97c-4e35-47b4-b878-723d4a2fd6be.jpg",
+      "https://sumerudigital.com/wp-content/uploads/2024/06/11825bdf-fb4c-420e-bb42-ab940a166721.jpg",
+      "https://www.cinecasero.uy/img/hmd/hmd-5.jpg",
     ]
   };
 
@@ -186,18 +203,17 @@ const MovieSection = () => {
           <h3>LEARN MORE ABOUT OUR STORY</h3>
           <i className="ri-arrow-right-line"></i>
         </a>
-        <a href="#" className="text-a">
-          <h3>MEET OUR TEAM</h3>
-          <i className="ri-arrow-right-line"></i>
-        </a>
-        <h2 className="text-h2">EMPOWERING YOUR BUSINESS FOR THE FUTURE</h2>
-        <h2 className="text-h2">WHERE INNOVATION MEETS EXECUTION</h2>
+       
       </TextArea>
 
       <LineOne>
         <InnerLine ref={lineOneRef}>
           {images.line1.map((img, index) => (
-            <Card key={`line1-${index}`} bgImage={img} />
+            <Card 
+              key={`line1-${index}`} 
+              bgImage={img} 
+              className="image-card"
+            />
           ))}
         </InnerLine>
       </LineOne>
@@ -205,7 +221,11 @@ const MovieSection = () => {
       <LineOne>
         <InnerLine ref={lineTwoRef} isSecond>
           {images.line2.map((img, index) => (
-            <Card key={`line2-${index}`} bgImage={img} />
+            <Card 
+              key={`line2-${index}`} 
+              bgImage={img}
+              className="image-card"
+            />
           ))}
         </InnerLine>
       </LineOne>

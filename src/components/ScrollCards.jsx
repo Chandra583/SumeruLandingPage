@@ -29,7 +29,7 @@ const ScrollCards = () => {
           trigger: sectionRef.current,
           start: "top 40%",
           end: "top 20%",
-          scrub: 3,
+          scrub: 2,
           markers: true
         }
       }
@@ -47,9 +47,9 @@ const ScrollCards = () => {
         duration: 1,
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 40%",
-          end: "top 20%",
-          scrub: 3,
+          start: "top 10%",
+          end: "top 0%",
+          scrub: 1,
           markers: true
         }
       }
