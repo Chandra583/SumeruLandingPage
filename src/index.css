@@ -11,7 +11,7 @@
 
 /* Hide the default cursor */
 body {
-  /* cursor: none; */
+  cursor: none;
 }
 
 /* Show default cursor on clickable elements */
@@ -43,6 +43,6 @@ button, a, input {
 }
 
 /* Add this if you want text to be selectable */
-* {
+*{
     user-select: text;
 }

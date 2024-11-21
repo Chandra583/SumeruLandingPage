@@ -12,8 +12,9 @@ const OurWorkSection = () => {
         trigger: "#work-main",
         start: "50% 50%",
         end: "150% 50%",
-        scrub: 2,
-        pin: true
+        scrub:2,
+        pin: true,
+        markers: true
       }
     });
 
@@ -27,13 +28,13 @@ const OurWorkSection = () => {
       bottom: "-50%",
     }, 'a')
     .to("#work-top-h1", {
-      top: "60%"
+      top: "0%"
     }, 'a')
     .to("#work-bottom-h1", {
       bottom: "-30%"
     }, 'a')
     .to("#work-center-h1", {
-      top: "-30%"
+      top: "-50%"
     }, 'a')
     .to(`.${styles.content}`, {
       delay: -0.2,
@@ -48,27 +49,25 @@ const OurWorkSection = () => {
   return (
     <div id="work-main" className={styles.workMain}>
       <div id="work-top" className={styles.top}>
-        <h1 id="work-top-h1" className={styles.heading}>
-          OUR WORK
+        <h1 id="work-top-h1" className={`${styles.heading} manrope-font`}>
+        OUR SERVICES
         </h1>
       </div>
       
       <div id="work-center" className={styles.center}>
         <div className={styles.content}>
-          <h4 className={styles.subtitle}>OUR WORK</h4>
+          <h4 className={`${styles.subtitle} manrope-font`}>OUR WORK</h4>
           <h3 className={styles.description}>
             <i>Explore</i> the projects that define our <i>expertise</i> and showcase our craft.
           </h3>
-          <div className={styles.btn}>
-            <h5>VIEW PROJECTS</h5>
-          </div>
-          <h2 className={styles.number}>(24)</h2>
+       
+          {/* <h2 className={styles.number}>(24)</h2> */}
         </div>
       </div>
       
       <div id="work-bottom" className={styles.bottom}>
-        <h1 id="work-bottom-h1" className={`${styles.heading} ${styles.bottomHeading}`}>
-          OUR WORK
+        <h1 id="work-bottom-h1" className={`${styles.heading} ${styles.bottomHeading} manrope-font`}>
+        OUR SERVICES
         </h1>
       </div>
     </div>

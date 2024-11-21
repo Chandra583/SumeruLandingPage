@@ -112,36 +112,35 @@ const MovieSection = () => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    // Remove the text animation timeline (tl0)
-    
-    // Keep only the background color animation
+    // Background color animation - ends earlier
     gsap.to("#movie-section", {
       scrollTrigger: {
         trigger: "#movie-section",
-        start: "30% 50%",
-        end: "80% 60%",
+        start: "top 80%",
+        end: "40% center",
         markers: true,
-        scrub: 1,
+        scrub: 2,
         onUpdate: (self) => {
           const progress = self.progress;
           const section = document.getElementById('movie-section');
           section.style.backgroundColor = gsap.utils.interpolate('#0a0a0a', '#FAFAFA', progress);
           
-          // Update opacity of all Card elements
+          // Update opacity of all Card elements with eased transition
           const cards = section.getElementsByClassName('image-card');
           Array.from(cards).forEach(card => {
-            card.style.opacity = progress;
+            card.style.opacity = gsap.utils.interpolate(0, 1, progress);
           });
         }
-      }
+      },
+      ease: "power2.inOut"
     });
 
-    // Adjust the margin values for more space between lines
+    // Line scrolling animation - starts after background transition
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: "#movie-section",
         markers: true,
-        start: "50% 50%",
+        start: "40% center",
         end: "200% 80%",
         scrub: 1.5,
         pin: true
