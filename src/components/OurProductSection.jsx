@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
-const ScrollCards = () => {
+const OurProductSection = () => {
   const sectionRef = useRef(null);
   const textOneRef = useRef(null);
   const textTwoRef = useRef(null);
@@ -193,4 +193,4 @@ const ScrollCards = () => {
   );
 };
 
-export default ScrollCards; 
+export default OurProductSection; 

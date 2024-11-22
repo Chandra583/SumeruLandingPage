@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import './HorizontalScroll.css';
+import './EventSection.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const HorizontalScroll = () => {
+const EventSection = () => {
   const containerRef = useRef(null);
   const sectionsRef = useRef([]);
   const maskRef = useRef(null);
@@ -33,7 +33,7 @@ const HorizontalScroll = () => {
       scrollTrigger: {
         trigger: ".wrapper",
         start: "top left",
-        scrub: 1
+        scrub: 3
       }
     });
 
@@ -51,7 +51,7 @@ const HorizontalScroll = () => {
         opacity: 1,
         duration: 2,
         ease: "elastic.out(1, 0.3)",
-        stagger: 0.1,
+        stagger: 0.5,
         scrollTrigger: {
           trigger: section,
           containerAnimation: scrollTween,
@@ -71,13 +71,13 @@ const HorizontalScroll = () => {
   return (
     <div className="wrapper">
       <div className="container" ref={containerRef}>
-        <svg viewBox="0 0 900 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M9.89998 6C9.43671 8.28224 7.41896 10 5 10C2.23858 10 0 7.76142 0 5C0 2.23858 2.23858 0 5 0C7.41896 0 9.43671 1.71776 9.89998 4H445.1C445.563 1.71776 447.581 0 450 0C452.419 0 454.437 1.71776 454.9 4H890.1C890.563 1.71776 892.581 0 895 0C897.761 0 900 2.23858 900 5C900 7.76142 897.761 10 895 10C892.581 10 890.563 8.28224 890.1 6H454.9C454.437 8.28224 452.419 10 450 10C447.581 10 445.563 8.28224 445.1 6H9.89998Z" fill="#D9D9D9"/>
+        <svg viewBox="0 0 950 10" fill="cian" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9.89998 6C9.43671 8.28224 7.41896 10 5 10C2.23858 10 0 7.76142 0 5C0 2.23858 2.23858 0 5 0C7.41896 0 9.43671 1.71776 9.89998 4H297.1C297.563 1.71776 299.581 0 302 0C304.419 0 306.437 1.71776 306.9 4H593.1C593.563 1.71776 595.581 0 598 0C600.419 0 602.437 1.71776 602.9 4H890.1C890.563 1.71776 892.581 0 895 0C897.761 0 900 2.23858 900 5C900 7.76142 897.761 10 895 10C892.581 10 890.563 8.28224 890.1 6H602.9C602.437 8.28224 600.419 10 598 10C595.581 10 593.563 8.28224 593.1 6H306.9C306.437 8.28224 304.419 10 302 10C299.581 10 297.563 8.28224 297.1 6H9.89998Z" fill="#D9D9D9"/>
           <mask id="mask0_0_1" style={{maskType: 'alpha'}} maskUnits="userSpaceOnUse" x="0" y="0" width="900" height="10">
-            <path d="M9.89998 6C9.43671 8.28224 7.41896 10 5 10C2.23858 10 0 7.76142 0 5C0 2.23858 2.23858 0 5 0C7.41896 0 9.43671 1.71776 9.89998 4H445.1C445.563 1.71776 447.581 0 450 0C452.419 0 454.437 1.71776 454.9 4H890.1C890.563 1.71776 892.581 0 895 0C897.761 0 900 2.23858 900 5C900 7.76142 897.761 10 895 10C892.581 10 890.563 8.28224 890.1 6H454.9C454.437 8.28224 452.419 10 450 10C447.581 10 445.563 8.28224 445.1 6H9.89998Z" fill="#D9D9D9"/>
+            <path d="M9.89998 6C9.43671 8.28224 7.41896 10 5 10C2.23858 10 0 7.76142 0 5C0 2.23858 2.23858 0 5 0C7.41896 0 9.43671 1.71776 9.89998 4H297.1C297.563 1.71776 299.581 0 302 0C304.419 0 306.437 1.71776 306.9 4H593.1C593.563 1.71776 595.581 0 598 0C600.419 0 602.437 1.71776 602.9 4H890.1C890.563 1.71776 892.581 0 895 0C897.761 0 900 2.23858 900 5C900 7.76142 897.761 10 895 10C892.581 10 890.563 8.28224 890.1 6H602.9C602.437 8.28224 600.419 10 598 10C595.581 10 593.563 8.28224 593.1 6H306.9C306.437 8.28224 304.419 10 302 10C299.581 10 297.563 8.28224 297.1 6H9.89998Z" fill="#D9D9D9"/>
           </mask>
           <g mask="url(#mask0_0_1)">
-            <rect className="mask" ref={maskRef} y="-49" height="99" fill="black"/>
+            <rect className="mask" ref={maskRef} y="-49" height="99" fill="#0a0a0a"/>
           </g>
         </svg>
 
@@ -89,7 +89,7 @@ const HorizontalScroll = () => {
           />
           <span>Advanced</span>
           <h1>Signify Elegance</h1>
-          <div className="col">
+          <div className="col anim">
             <p>Lorem ipsum dolor sit amet consectetur. Egestas euismod nec sit sed massa turpis in. Sit praesent arcu leo lectus pellentesque.</p>
             <p>Lorem ipsum dolor sit amet consectetur. Egestas euismod nec sit sed massa turpis in. Sit praesent arcu leo lectus pellentesque.</p>
           </div>
@@ -112,9 +112,17 @@ const HorizontalScroll = () => {
             <p>Lorem ipsum dolor sit amet consectetur. Egestas euismod nec sit sed massa turpis in. Sit praesent arcu leo lectus pellentesque.</p>
           </div>
         </section>
+        <section className="sec4 pin" ref={el => sectionsRef.current[3] = el}>
+          <span className="anim">Advanced</span>
+          <h1 className="anim">Signify Elegance</h1>
+          <div className="col anim">
+            <p>Lorem ipsum dolor sit amet consectetur. Egestas euismod nec sit sed massa turpis in. Sit praesent arcu leo lectus pellentesque.</p>
+            <p>Lorem ipsum dolor sit amet consectetur. Egestas euismod nec sit sed massa turpis in. Sit praesent arcu leo lectus pellentesque.</p>
+          </div>
+        </section>
       </div>
     </div>
   );
 };
 
-export default HorizontalScroll; 
+export default EventSection; 

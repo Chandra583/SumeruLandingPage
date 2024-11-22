@@ -2,11 +2,12 @@ import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import Spline from '@splinetool/react-spline';
-import ScrollCards from './ScrollCards';
-import MovieSection from './MovieSection';
-import OurWorkSection from './OurWorkSection';
-import HorizontalScroll from './HorizontalScroll/HorizontalScroll';
+
+import AboutSection from './AboutSection';
+import OurWorkSection from './ourWorkSection/OurWorkSection';
+import EventSection from './EventSection/EventSection';
 import HeroSection from './HeroSection';
+import OurProductSection from './OurProductSection';
 
 
 const MainContent = () => {
@@ -116,15 +117,15 @@ const MainContent = () => {
       <HeroSection />
 
       {/* about section component */}
-      <MovieSection />
+   <AboutSection/>
 
       {/* our product  component */}
-      <ScrollCards />
+   <OurProductSection/>
       {/* OurWorkSection component */}
      <OurWorkSection/>
 
      {/* Event Section component */}
-     <HorizontalScroll />
+      <EventSection />
 
       {/* Chat Bot Button */}
       <button

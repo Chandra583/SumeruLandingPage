@@ -104,7 +104,7 @@ const Card = styled.div`
   opacity: 0;
 `;
 
-const MovieSection = () => {
+const AboutSection = () => {
   const lineOneRef = useRef(null);
   const lineTwoRef = useRef(null);
   const textRef = useRef(null);
@@ -232,4 +232,4 @@ const MovieSection = () => {
   );
 };
 
-export default MovieSection;
+export default AboutSection;
