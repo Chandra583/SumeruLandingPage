@@ -113,7 +113,7 @@ const MainContent = () => {
       <div className="cursor" ref={cursorRef}></div>
 
       {/* Hero Section */}
-      {/* <HeroSection /> */}
+      <HeroSection />
 
       {/* about section component */}
       <MovieSection />
@@ -122,6 +122,8 @@ const MainContent = () => {
       <ScrollCards />
       {/* OurWorkSection component */}
      <OurWorkSection/>
+
+     {/* Event Section component */}
      <HorizontalScroll />
 
       {/* Chat Bot Button */}

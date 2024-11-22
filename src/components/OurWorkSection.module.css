@@ -74,7 +74,7 @@
 
 .bottom .heading {
     bottom: 50%;
-    transform: translate(-50%, -8.6%);
+    transform: translate(-50%, 8.6%);
 }
 
 .content {
