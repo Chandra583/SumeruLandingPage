@@ -8,6 +8,7 @@ import OurWorkSection from './ourWorkSection/OurWorkSection';
 import EventSection from './EventSection/EventSection';
 import HeroSection from './HeroSection';
 import OurProductSection from './OurProductSection';
+import TechStack from '../TechReveal/TechStack';
 
 
 const MainContent = () => {
@@ -34,47 +35,61 @@ const MainContent = () => {
     }
   };
 
+  
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const cursor = cursorRef.current;
 
-    // Basic cursor movement
+    // Basic cursor movement with transform instead of left/top
     const handleMouseMove = (e) => {
       if (cursor) {
-        cursor.style.left = e.clientX + "px";
-        cursor.style.top = e.clientY + "px";
+        gsap.to(cursor, {
+          duration: 0,
+          x: e.clientX,
+          y: e.clientY,
+          force3D: true
+        });
       }
     };
 
-    // Handle hover effects for text elements
+    // Updated hover effects for text elements
     const handleTextHover = () => {
+      const cursor = cursorRef.current;
       if (cursor) {
-        cursor.style.height = "100px";
-        cursor.style.width = "100px";
-        cursor.style.mixBlendMode = "difference";
+        gsap.to(cursor, {
+          duration: 0.3,
+          width: '100px',
+          height: '100px',
+          backgroundColor: '#ffffff',
+          mixBlendMode: 'difference',
+          force3D: true
+        });
       }
     };
 
-    // Handle mouse leave from text elements
+    // Updated mouse leave handler
     const handleTextLeave = () => {
+      const cursor = cursorRef.current;
       if (cursor) {
-        cursor.style.height = "20px";
-        cursor.style.width = "20px";
+        gsap.to(cursor, {
+          duration: 0.3,
+          width: '20px',
+          height: '20px',
+          backgroundColor: '#ffffff',
+          force3D: true
+        });
       }
     };
 
-    // Add event listeners
-    document.addEventListener("mousemove", handleMouseMove);
+    // Add event listeners with passive option for better performance
+    document.addEventListener("mousemove", handleMouseMove, { passive: true });
 
-    // Add hover effects to all text elements
-    const textElements = document.querySelectorAll('h1, h2, h3, p, span, button, li');
+    // Update the selector to be more specific and exclude EventSection
+    const textElements = document.querySelectorAll('h1:not(.events-title), h2, h3, p:not(.event-text), span:not(.event-span), button, li');
     textElements.forEach(element => {
       element.addEventListener("mouseenter", handleTextHover);
       element.addEventListener("mouseleave", handleTextLeave);
     });
-
-    // Your existing GSAP animations...
-    gsap.fromTo('.heading', { opacity: 0 }, { opacity: 1, duration: 2 });
 
     // Cleanup
     return () => {
@@ -108,10 +123,39 @@ const MainContent = () => {
     }
   }, [isChatOpen]);
 
+  useEffect(() => {
+    const cursor = cursorRef.current;
+    if (cursor) {
+      cursor.style.mixBlendMode = 'difference';
+      cursor.style.zIndex = '999999';
+      // Force the cursor to create its own stacking context
+      document.body.style.isolation = 'initial';
+      document.documentElement.style.isolation = 'initial';
+    }
+  }, []);
+
   return (
     <div className="relative h-screen bg-white transition-colors">
-      {/* Custom Cursor */}
-      <div className="cursor" ref={cursorRef}></div>
+      {/* Updated Custom Cursor */}
+      <div 
+        className="cursor" 
+        ref={cursorRef}
+        style={{
+          position: 'fixed',
+          top: -10,
+          left: -10,
+          width: '20px',
+          height: '20px',
+          backgroundColor: '#ffffff',
+          borderRadius: '50%',
+          pointerEvents: 'none',
+          zIndex: 999999,
+          mixBlendMode: 'difference',
+          transform: 'translate(-50%, -50%)',
+          willChange: 'transform',
+          isolation: 'isolate'
+        }}
+      ></div>
 
       {/* Hero Section */}
       <HeroSection />
@@ -126,8 +170,9 @@ const MainContent = () => {
 
      {/* Event Section component */}
       <EventSection />
-
+      <TechStack/>
       {/* Chat Bot Button */}
+
       <button
         onClick={() => setIsChatOpen(!isChatOpen)}
         className="fixed bottom-4 right-4 bg-blue-500 text-white p-4 rounded-full z-50 shadow-lg"

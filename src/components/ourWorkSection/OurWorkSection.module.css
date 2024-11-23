@@ -69,12 +69,12 @@
 
 .top .heading {
     top: 50%;
-    transform: translate(-50%,2%);
+    transform: translate(-50%,-30%);
 }
 
 .bottom .heading {
     bottom: 50%;
-    transform: translate(-50%, 8.6%);
+    transform: translate(-50%, 30%);
 }
 
 .content {

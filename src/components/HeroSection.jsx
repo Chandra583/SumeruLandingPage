@@ -27,45 +27,19 @@ const HeroSection = () => {
       <div className="absolute inset-0 w-full h-full z-0">
         <Spline scene="https://prod.spline.design/1vD-Yx853UHLqj2v/scene.splinecode" />
       </div>
-
-      {/* Text overlay */}
-      <div className="absolute inset-0 z-10 flex flex-col justify-between p-10 pointer-events-none">
-        {/* Left bottom text */}
-        <div className="absolute bottom-20 left-12 space-y-6">
-          {/* Heading */}
-          <h1 className="text-8xl leading-tight text-gradient bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500 bg-clip-text text-transparent font-extrabold">
-            Revolutionizing <br /> Tomorrow with{" "}
-            <span
-              className={`inline-block transition-opacity duration-500 ${
-                fade ? "opacity-0" : "opacity-100"
-              }`}
-            >
-              {words[currentWordIndex]}
-            </span>
-          </h1>
-
-          {/* Description */}
-          <p className="text-lg font-semibold text-gray-700">
-            Empowering businesses with visionary software <br />
-            and cutting-edge development services.
-          </p>
-
-          {/* Buttons */}
-          <div className="flex items-center gap-5">
-            {/* Shape the Future Button */}
-            <button className="bg-gray-800 border border-gray-600 text-white py-3 px-8 rounded-full hover:bg-gray-700 hover:scale-105 hover:shadow-lg transition transform duration-300">
-              Shape the Future
-            </button>
-
-            {/* Learn More Button */}
-            <button className="bg-blue-600 border border-blue-500 text-white py-3 px-8 rounded-full hover:bg-blue-700 hover:scale-105 hover:shadow-lg transition transform duration-300">
-              Learn More
-            </button>
-          </div>
+      
+      {/* Content overlay */}
+      <div className="relative z-10 h-full flex flex-col justify-center items-start p-8 pointer-events-none">
+        <div className="text-gray-700 text-sm mb-2">Lorem, ipsum.</div>
+        <h1 className="heading text-5xl md:text-7xl font-bold text-gray-900">Lorem ipsum dolor sit.</h1>
+        <p className="mt-4 text-lg text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        {/* Button container */}
+        <div className="mt-6 flex space-x-4 pointer-events-auto">
+          <button className="bg-black text-white py-2 px-4 rounded">Contact sales</button>
+          <button className="bg-white text-black py-2 px-4 rounded border border-black">Request a demo</button>
         </div>
       </div>
     </div>
   );
 };
-
 export default HeroSection;
