@@ -25,7 +25,7 @@ const EventSection = () => {
         pin: true,
         scrub: 1,
         end: "+=3000",
-        markers: true
+        // markers: true
       }
     });
 
@@ -54,14 +54,14 @@ const EventSection = () => {
         opacity: 1,
         duration: 2,
         ease: "elastic.out(1, 0.3)",
-        stagger: 0.3,
+        stagger: 0.1,
         scrollTrigger: {
           trigger: section,
           containerAnimation: scrollTween,
           start: "left 40%",
           end: "left 40%",
           toggleActions: "play none none reverse",
-          markers: true,
+          // markers: true,
           id: `section-${index}`
         }
       });
@@ -105,11 +105,12 @@ const EventSection = () => {
             />
           </div> */}
           <img 
-            src="https://images.unsplash.com/photo-1731690415686-e68f78e2b5bd?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+            src="https://nirvana.sumerudigital.com/wp-content/uploads/2024/10/1687197613581.jpg" 
             alt="Random decorative image" 
             className="section-image anim"
           />
-          <span className="anim">Advanced</span>
+          <span className="anim">TechVantage
+          A Web 3.0 Summit</span>
           <div className="col anim">
             <p>Lorem ipsum dolor sit amet consectetur. Egestas euismod nec sit sed massa turpis in. Sit praesent arcu leo lectus pellentesque.</p>
             <p>Lorem ipsum dolor sit amet consectetur. Egestas euismod nec sit sed massa turpis in. Sit praesent arcu leo lectus pellentesque.</p>
@@ -117,13 +118,18 @@ const EventSection = () => {
         </section>
 
         <section className="sec2 pin" ref={el => sectionsRef.current[1] = el}>
-        <div className="spline-container anim">
+        {/* <div className="spline-container anim">
             <Spline
               scene="https://prod.spline.design/014pxYRtowxVZxOc/scene.splinecode"
               style={{ width: '100%', height: '100%' }}
             />
-          </div>
-          <span className="anim">Advanced</span>
+          </div> */}
+          <img 
+            src="https://nirvana.sumerudigital.com/wp-content/uploads/2024/09/speakers-2.jpg" 
+            alt="Random decorative image" 
+            className="section-image anim"
+          />
+          <span className="anim">Nirvana Hub: NextGen India Summit</span>
           <div className="col anim">
             <p>Lorem ipsum dolor sit amet consectetur. Egestas euismod nec sit sed massa turpis in. Sit praesent arcu leo lectus pellentesque.</p>
             <p>Lorem ipsum dolor sit amet consectetur. Egestas euismod nec sit sed massa turpis in. Sit praesent arcu leo lectus pellentesque.</p>

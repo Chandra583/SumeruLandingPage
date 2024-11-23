@@ -8,6 +8,7 @@ import OurWorkSection from './ourWorkSection/OurWorkSection';
 import EventSection from './EventSection/EventSection';
 import HeroSection from './HeroSection';
 import OurProductSection from './OurProductSection';
+import TechStack from '../TechReveal/TechStack';
 
 
 const MainContent = () => {
@@ -169,8 +170,9 @@ const MainContent = () => {
 
      {/* Event Section component */}
       <EventSection />
-
+      <TechStack/>
       {/* Chat Bot Button */}
+
       <button
         onClick={() => setIsChatOpen(!isChatOpen)}
         className="fixed bottom-4 right-4 bg-blue-500 text-white p-4 rounded-full z-50 shadow-lg"

@@ -118,7 +118,7 @@ const AboutSection = () => {
         trigger: "#movie-section",
         start: "top 80%",
         end: "40% center",
-        markers: true,
+        // markers: true,
         scrub: 2,
         onUpdate: (self) => {
           const progress = self.progress;
@@ -139,7 +139,7 @@ const AboutSection = () => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: "#movie-section",
-        markers: true,
+        // markers: true,
         start: "40% center",
         end: "200% 80%",
         scrub: 1.5,

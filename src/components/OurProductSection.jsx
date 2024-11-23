@@ -30,7 +30,7 @@ const OurProductSection = () => {
           start: "top 40%",
           end: "top 20%",
           scrub: 2,
-          markers: true
+          // markers: true
         }
       }
     );
@@ -50,7 +50,7 @@ const OurProductSection = () => {
           start: "top 10%",
           end: "top 0%",
           scrub: 1,
-          markers: true
+          // markers: true
         }
       }
     );
@@ -63,7 +63,7 @@ const OurProductSection = () => {
         end: "200% 50%",
         scrub: 3,
         pin: true,
-        markers: true
+        // markers: true
       }
     });
 
@@ -137,7 +137,7 @@ const OurProductSection = () => {
         <div className="w-full h-full flex items-center justify-center">
           <div className="w-[85%] h-[85%]  rounded-lg overflow-hidden">
             <img 
-              src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200" 
+              src="https://offerghost.com/wp-content/uploads/2024/06/dashboardUI.png" 
               alt="Card One"
               className="w-full h-full object-cover"
             />
@@ -146,13 +146,13 @@ const OurProductSection = () => {
       </div>
       <div id="card-two"
            className="cards absolute top-[230%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] h-[40vh] bg-gradient-to-r from-blue-200 to-purple-300 p-4 rounded-lg m-4">
-        <div className="absolute top-0 left-0 right-0 p-4 bg-white bg-opacity-50 rounded-t-lg flex items-center justify-center">
-        <p className="text-black font-normal">Find My Pic</p>
+       <div className="absolute top-0 left-0 right-0 p-4 bg-white bg-opacity-50 rounded-t-lg flex items-center justify-center">
+       <p className="text-black font-bold">Find My Pic</p>
         </div>
         <div className="w-full h-full flex items-center justify-center">
           <div className="w-[85%] h-[85%] rounded-lg overflow-hidden">
             <img 
-              src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=1200" 
+              src="https://images.pexels.com/photos/4201333/pexels-photo-4201333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
               alt="Card Two"
               className="w-full h-full object-cover"
             />
@@ -161,13 +161,13 @@ const OurProductSection = () => {
       </div>
       <div id="card-three"
            className="cards absolute top-[250%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] h-[40vh] bg-gradient-to-r from-blue-200 to-purple-300 p-4 rounded-lg m-4">
-        <div className="absolute top-0 left-0 right-0 p-4 bg-white bg-opacity-50 rounded-t-lg flex items-center justify-center">
-        <p className="text-black">GBL"Global Bussines League"</p>
+       <div className="absolute top-0 left-0 right-0 p-4 bg-white bg-opacity-50 rounded-t-lg flex items-center justify-center">
+       <p className="text-black font-bold">GBL"Global Bussines League"</p>
         </div>
         <div className="w-full h-full flex items-center justify-center">
           <div className="w-[85%] h-[85%]  rounded-lg overflow-hidden">
             <img 
-              src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=1200" 
+              src="https://images.pexels.com/photos/3184416/pexels-photo-3184416.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
               alt="Card Two"
               className="w-full h-full object-cover"
             />
@@ -177,7 +177,7 @@ const OurProductSection = () => {
       <div id="card-four"
            className="cards absolute top-[270%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] h-[40vh] bg-gradient-to-r from-blue-200 to-purple-300 p-4 rounded-lg m-4">
         <div className="absolute top-0 left-0 right-0 p-4 bg-white bg-opacity-50 rounded-t-lg flex items-center justify-center">
-          <p className="text-black">Card Four Text</p>
+        <p className="text-black font-bold">Tech Expert</p>
         </div>
         <div className="w-full h-full flex items-center justify-center">
           <div className="w-[85%] h-[85%]  rounded-lg overflow-hidden">
