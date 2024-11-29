@@ -157,8 +157,7 @@ const MainContent = () => {
         }}
       ></div>
 
-      {/* Hero Section */}
-      <HeroSection />
+
 
       {/* about section component */}
    <AboutSection/>

@@ -116,14 +116,14 @@ const AboutSection = () => {
     gsap.to("#movie-section", {
       scrollTrigger: {
         trigger: "#movie-section",
-        start: "top 80%",
-        end: "40% center",
+        start: "top 0%",
+        end: "0% center",
         // markers: true,
         scrub: 2,
         onUpdate: (self) => {
           const progress = self.progress;
           const section = document.getElementById('movie-section');
-          section.style.backgroundColor = gsap.utils.interpolate('#0a0a0a', '#FAFAFA', progress);
+          section.style.backgroundColor = gsap.utils.interpolate('white', 'white', progress);
           
           // Update opacity of all Card elements with eased transition
           const cards = section.getElementsByClassName('image-card');

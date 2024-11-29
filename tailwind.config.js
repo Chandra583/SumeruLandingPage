@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'manrope': ['Manrope', 'sans-serif'],
+        sans: ['Poppins', 'ui-sans-serif', 'system-ui'],
       },
     },
   },

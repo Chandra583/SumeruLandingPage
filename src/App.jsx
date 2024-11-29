@@ -5,7 +5,7 @@ import HeroSection from './components/HeroSection';
 
 function App() {
   return (
-    <div className="font-manrope relative">
+    <div className="relative mx-auto max-w-7xl px-4">
       {/* Navbar */}
       <div className="relative z-50">
         <Navbar />

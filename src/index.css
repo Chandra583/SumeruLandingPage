@@ -2,47 +2,31 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-/* Custom styles if needed */
-
-/* Add to your CSS file */
-.custom-cursor {
-  will-change: transform;
-}
-
-/* Hide the default cursor */
+/* Set global font-family */
 body {
-  cursor: none;
+  @apply font-sans; /* Tailwind's font-sans utility */
+  cursor: none; /* Hide the default cursor */
 }
 
-/* Show default cursor on clickable elements */
+/* Custom styles for elements */
 button, a {
-  cursor: pointer;
+  cursor: pointer; /* Show pointer cursor for clickable elements */
 }
 
 .cursor {
-    height: 20px;
-    width: 20px;
-    background: rgb(255, 255, 255);
-    border-radius: 50%;
-    position: fixed;
-    mix-blend-mode: difference;
-    transition: all cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
+  height: 20px;
+  width: 20px;
+  background: rgb(255, 255, 255);
+  border-radius: 50%;
+  position: fixed;
+  mix-blend-mode: difference;
+  transition: all cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
 }
 
-/* Optional: Hide default cursor */
-body {
-    cursor: none;
-}
-
-/* Optional: Show default cursor on interactive elements */
-button, a, input {
-    cursor: pointer;
-}
-
-/* Add this if you want text to be selectable */
-*{
-    user-select: text;
+/* Allow text selection globally */
+* {
+  user-select: text;
 }
