@@ -6,6 +6,8 @@ import styles from './TechReveal.module.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
+//gwvqdy
+
 const TechStack = () => {
   useEffect(() => {
     // Initialize Lenis
