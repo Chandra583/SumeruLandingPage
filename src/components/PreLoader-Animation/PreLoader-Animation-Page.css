@@ -1,0 +1,135 @@
+/* Ensure the preloader covers the full viewport */
+.preloader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white; /* Match the background of your preloader */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensure it sits on top of other content */
+    overflow: hidden;
+  }
+  
+  /* Main wrapper for the entire logo */
+  .logo-wrapper {
+    width: 400px; /* Main wrapper width */
+    height: 106px; /* Match logo height */
+    display: flex;
+    justify-content: space-between; /* Ensure spacing between flower and text */
+    position: relative;
+    overflow: hidden; /* Prevent overflow outside this wrapper */
+    transition: opacity 2s ease, filter 2s ease; /* Smooth fade and blur */
+  }
+  
+  /* Flower container */
+  .flower-container {
+    width: 63.3px; /* Adjusted flower width */
+    height: 100%; /* Match wrapper height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%; /* Start in center of wrapper */
+    transform: translateX(-50%); /* Center alignment */
+    transition: left 1s ease, transform 1s ease; /* Smooth movement */
+    overflow: hidden; /* Prevent overflow outside flower container */
+  }
+  
+  /* Flower animation */
+  .logo-container {
+    position: relative;
+    width: 63.3px; /* Match flower container width */
+    height: 106px; /* Match flower container height */
+  }
+  
+  .logo-part {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Initially hidden */
+    transform: scale(0.5); /* Start with a smaller size */
+    transition: transform 1s ease, opacity 1s ease; /* Smooth animation */
+  }
+  
+  /* Center part (3) animation */
+  .logo-part.center {
+    transition: transform 2s ease, opacity 2s ease;
+  }
+  
+  /* Tilting parts (1, 2, 4, 5) */
+  .logo-part.tilt-left {
+    transform: scale(0.5) rotate(-30deg); /* Tilts left */
+  }
+  
+  .logo-part.tilt-right {
+    transform: scale(0.5) rotate(30deg); /* Tilts right */
+  }
+  
+  /* Blooming animation (normal state) */
+  .logo-part.active {
+    opacity: 1;
+    transform: scale(1) rotate(0deg); /* Bloom and reset rotation */
+  }
+  
+  /* Line and text container */
+  .text-container {
+    width: 327px; /* Adjusted text block width */
+    height: 100%; /* Match wrapper height */
+    display: flex;
+    justify-content: flex-start; /* Align text to the left */
+    align-items: center;
+    position: absolute;
+    right: 0; /* Align to the right of the main wrapper */
+    overflow: hidden; /* Prevent overflow outside text container */
+  }
+  
+  /* Ensure all text and line are stacked on top of each other */
+  .text-container img {
+    position: absolute;
+    width: 100%; /* Match container width */
+    height: 100%; /* Match container height */
+    top: 0;
+    left: 0;
+    opacity: 0; /* Initially hidden */
+    transform: scale(0.9); /* Slightly smaller */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+  
+  .text-container img.active {
+    opacity: 1;
+    transform: scale(1); /* Normal scale */
+  }
+  
+  /* Shine effect */
+  .shine {
+    position: absolute;
+    top: -50%; /* Start off the top-left */
+    left: -150%; /* Start off completely outside on the left */
+    width: 150%; /* Cover enough area diagonally */
+    height: 200%; /* Make it large enough for diagonal shine */
+    background: linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.8) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(45deg); /* Diagonal */
+    animation: none; /* Will trigger later */
+    pointer-events: none; /* Prevent interaction */
+  }
+  
+  /* Keyframes for the shine effect */
+  @keyframes shine-effect {
+    0% {
+      left: -150%; /* Start outside on the left */
+    }
+    100% {
+      left: 100%; /* Move completely outside to the right */
+    }
+  }
+  

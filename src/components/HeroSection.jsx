@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Spline from "@splinetool/react-spline";
 
+import CircularButton from "./CircularButton";
+
 const HeroSection = () => {
   const words = ["Ideas", "Code", "Creativity", "Impact"];
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -53,9 +55,12 @@ const HeroSection = () => {
             collaborative efforts.
           </p>
           {/* Button directly below the paragraph */}
-          <button className="bg-gray-800 border border-gray-600 text-white py-4 px-10 rounded-full hover:bg-gray-700 hover:scale-105 hover:shadow-lg transition transform duration-300">
-            Explore Now
-          </button>
+          <CircularButton
+            text="Explore Now"
+            icon="ri-arrow-right-line"
+            onClick={() => console.log("Button Clicked!")} // Add your click logic here
+            className="mt-1 bg-yellow-500 text-white"
+          />
         </div>
       </div>
 
@@ -73,20 +78,20 @@ const HeroSection = () => {
         <Spline scene="https://prod.spline.design/hCf5LpoqFfn6FgmY/scene.splinecode" />
       </div>
 
-      {/* Custom Animation Styles */}
-      <style jsx>{`
-        @keyframes gradient-shift {
-          0% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-          100% {
-            background-position: 0% 50%;
-          }
-        }
-      `}</style>
+{/* Custom Animation Styles */}
+<style>{`
+  @keyframes gradient-shift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+`}</style>
     </div>
   );
 };

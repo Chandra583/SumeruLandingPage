@@ -1,0 +1,18 @@
+/* Overlay-BlurEffect.css */
+.overlay-blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 1);
+  opacity: 1;
+  backdrop-filter: blur(50px); /* Increase the blur amount */
+  transition: opacity 3s ease-in-out; /* Adjusted duration */
+  z-index: 9998;
+}
+
+.overlay-blur.fade-out {
+  opacity: 0;
+  backdrop-filter: blur(0px);
+}
