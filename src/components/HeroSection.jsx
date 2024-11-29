@@ -24,9 +24,9 @@ const HeroSection = () => {
   return (
     <div className="relative min-h-screen w-full">
       {/* Spline container */}
-      <div className="absolute inset-0 w-full h-full z-0">
+      {/* <div className="absolute inset-0 w-full h-full z-0">
         <Spline scene="https://prod.spline.design/1vD-Yx853UHLqj2v/scene.splinecode" />
-      </div>
+      </div> */}
       
       {/* Content overlay */}
       <div className="relative z-10 h-full flex flex-col justify-center items-start p-8 pointer-events-none">

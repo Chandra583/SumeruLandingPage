@@ -8,7 +8,7 @@ import OurWorkSection from './ourWorkSection/OurWorkSection';
 import EventSection from './EventSection/EventSection';
 import HeroSection from './HeroSection';
 import OurProductSection from './OurProductSection';
-import TechStack from '../TechReveal/TechStack';
+import TechStack from './TechReveal/TechStack';
 
 
 const MainContent = () => {
