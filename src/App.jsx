@@ -19,12 +19,12 @@ function App() {
   };
 
   return (
-    <div className="relative mx-auto max-w-7xl px-4">
-      {showPreloader && (
+    <div className="relative mx-auto max-w-8xl">
+      {/* {showPreloader && (
         <PreLoaderAnimationPage onAnimationComplete={handleAnimationComplete} />
       )}
 
-      {showOverlay && <OverlayBlurEffect />}
+      {showOverlay && <OverlayBlurEffect />} */}
 
       {/* Main content */}
       <div className="main-content">

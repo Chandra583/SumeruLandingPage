@@ -15,42 +15,56 @@ const TechStack = () => {
       lenis.raf(time);
       requestAnimationFrame(raf);
     };
-
+ 
     requestAnimationFrame(raf);
 
     // GSAP Animation
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: '.main-section',
+        trigger: '#main-gc',
         pin: true,
-        start: '50% 50%',
-        end: '300% 50%',
-        scrub: true,
+        pinSpacing: true,
+        start: 'top top',
+        end: '+=300%',
+        scrub: 1,
+        markers: true,
       }
     });
 
-    tl.to('.all-skills .skils', {
-      opacity: 1,
-      filter: "blur(0px)",
-      stagger: { 
-        each: 0.2, 
-        from: "random",
-       },// staggers the animations by 0.2 seconds between each element
-    });
+    // Remove the incorrect animation
+    // tl.to('.all-skills .skils', {...});
 
+    // Update the animation sequence
     const animationSequence = [
       'AR_VR', 'logo', 'social', 'seo', 'adobe', 
       'reels', 'html', 'digital', 'webflow', 'figma', 
       'javascript', 'wordpress', 'css'
     ];
 
+    // Add initial state
+    gsap.set(animationSequence.map(id => `#${id}`), {
+      opacity: 0,
+      filter: "blur(10px)"
+    });
+
+    // Animate each element
     animationSequence.forEach((id) => {
       tl.to(`#${id}`, {
         opacity: 1,
         filter: "blur(0px)",
-        delay: -0.3
-      });
+        duration: 1,
+        stagger: {
+          each: 0.3,
+          from: "random"
+        }
+      }, "<0.2");
     });
+
+    // Add animation for the right side content
+    tl.to('.right-content', {
+      opacity: 1,
+      duration: 1
+    }, "<0.5");
 
     // Cleanup
     return () => {
@@ -60,26 +74,84 @@ const TechStack = () => {
   }, []);
 
   return (
-    <div className={styles.mainGc} id="main-gc" style={{ backgroundColor: '#FAFAFA' }}>
-      <div className={`${styles.oneBlank} ${styles.dFlexC}`}>
-        <h1 style={{ color: '#0a0a0a' }}>Tech Stack</h1>
-        {/* <h4 style={{ color: '#0a0a0a' }}>Technologies We Use to Build Products</h4> */}
-      </div>
-      <div className={`${styles.mainSection} main-section ${styles.dFlex}`}>
-        <div className={`${styles.skills} ${styles.dFlex}`}>
-          <h2 id="figma" style={{ color: '#0a0a0a' }}>Figma</h2>
-          <h2 id="adobe" style={{ color: '#0a0a0a' }}>AWS</h2>
-          <h2 id="html" style={{ color: '#0a0a0a' }}>HTML</h2>
-          <h2 id="css" style={{ color: '#0a0a0a' }}>CSS</h2>
-          <h2 id="javascript" style={{ color: '#0a0a0a' }}>TypeScript</h2>
-          <h2 id="webflow" style={{ color: '#0a0a0a' }}>NextJS</h2>
-          <h2 id="wordpress" style={{ color: '#0a0a0a' }}>Wordpress</h2>
-          <h2 id="seo" style={{ color: '#0a0a0a' }}>SEO</h2>
-          <h2 id="digital" style={{ color: '#0a0a0a' }}>Digital Marketing</h2>
-          <h2 id="logo" style={{ color: '#0a0a0a' }}>Blockchain</h2>
-          <h2 id="AR_VR" style={{ color: '#0a0a0a' }}>AR & VR</h2>
-          <h2 id="social" style={{ color: '#0a0a0a' }}>MERN Stack</h2>
-          <h2 id="reels" style={{ color: '#0a0a0a' }}>AI &ML</h2>
+    <div className={styles.mainGc} id="main-gc" style={{ 
+      marginTop: '10px',
+      backgroundColor: '#000000', 
+      position: 'relative',
+      overflow: 'hidden',
+      height: '100vh'
+    }}>
+      <div className={styles.contentWrapper} style={{ 
+        display: 'flex', 
+        flexDirection: 'row',
+        width: '100%',
+        height: '100%',
+        padding: '3rem',
+        position: 'relative'
+      }}>
+        {/* Left Content - 60% width */}
+        <div className={styles.leftContent} style={{
+          width: '60%',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          gap: '2rem'
+        }}>
+          {/* Heading Section */}
+          <div className={styles.headingSection}>
+            <h1 style={{ color: '#ffffff' }}>Tech Stack</h1>
+          </div>
+          
+          {/* Skills Section */}
+          <div className={`${styles.mainSection} main-section ${styles.dFlex}`}>
+            <div className={`${styles.skills} ${styles.dFlex}`} style={{ 
+              // border: '1px solid red',
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: '1rem'
+            }}>
+              <h2 id="figma" style={{ color: '#ffffff' }}>Figma</h2>
+              <h2 id="adobe" style={{ color: '#ffffff' }}>AWS</h2>
+              <h2 id="html" style={{ color: '#ffffff' }}>HTML</h2>
+              <h2 id="css" style={{ color: '#ffffff' }}>CSS</h2>
+              <h2 id="javascript" style={{ color: '#ffffff' }}>TypeScript</h2>
+              <h2 id="webflow" style={{ color: '#ffffff' }}>NextJS</h2>
+              <h2 id="wordpress" style={{ color: '#ffffff' }}>Wordpress</h2>
+              <h2 id="seo" style={{ color: '#ffffff' }}>SEO</h2>
+              <h2 id="digital" style={{ color: '#ffffff' }}>Digital Marketing</h2>
+              <h2 id="logo" style={{ color: '#ffffff' }}>Blockchain</h2>
+              <h2 id="AR_VR" style={{ color: '#ffffff' }}>AR & VR</h2>
+              <h2 id="social" style={{ color: '#ffffff' }}>MERN Stack</h2>
+              <h2 id="reels" style={{ color: '#ffffff' }}>AI &ML</h2>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Content - 40% width */}
+        <div className={`${styles.rightContent} right-content`} style={{ 
+          width: '40%',
+          display: 'flex',
+          flexDirection: 'column'
+        }}>
+          <div className={styles.rightInner} style={{ color: '#ffffff' }}>
+            {/* <h3>Our Technology Expertise</h3>
+            <p>We leverage cutting-edge technologies to build innovative solutions</p> */}
+            
+            {/* Radial Gradient Color */}
+            <div className={styles.radialGradient} style={{
+              background: 'radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.1) 100%)',
+              borderRadius: '12px',
+              padding: '20px',
+              margin: '20px 0',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.1)'
+            }}>
+              <h4 style={{ marginBottom: '10px' }}>Technology Expertise</h4>
+              <p style={{ fontSize: '0.9rem', lineHeight: '1.5' }}>
+                We leverage cutting-edge technologies to build innovative solutions.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

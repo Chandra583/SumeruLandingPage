@@ -10,6 +10,27 @@ const OurProductSection = () => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
+    // Add background color animation and text color change
+    const backgroundTrigger = {
+      trigger: sectionRef.current,
+      start: "top top",
+      end: "top 0%",
+      scrub: 0,
+      // markers: true,
+      onUpdate: (self) => {
+        // Change text color based on scroll progress
+        const progress = self.progress;
+        const textColor = progress > 0.1 ? "#ffffff" : "#000000";
+        textOneRef.current.style.color = textColor;
+        textTwoRef.current.style.color = textColor;
+      }
+    };
+
+    gsap.to(sectionRef.current, {
+      backgroundColor: "#000000",
+      scrollTrigger: backgroundTrigger
+    });
+
     // Text animations
     gsap.set([textOneRef.current, textTwoRef.current], {
       opacity: 0,
@@ -29,7 +50,7 @@ const OurProductSection = () => {
           trigger: sectionRef.current,
           start: "top 40%",
           end: "top 20%",
-          scrub: 2,
+          scrub: 3,
           // markers: true
         }
       }
@@ -114,16 +135,16 @@ const OurProductSection = () => {
   }, []);
 
   return (
-    <div ref={sectionRef} className="relative min-h-[150vh] bg-[#FAFAFA]">
+    <div ref={sectionRef} className="relative min-h-[150vh] bg-white transition-colors duration-500">
       <div className="scroll-text absolute w-full h-full flex items-center justify-center -mt-32">
         <div className="flex items-center justify-center gap-8 overflow-hidden">
           <div className="overflow-hidden">
-            <h1 ref={textOneRef} className="text-[15vw] text-black font-bold">
+            <h1 ref={textOneRef} className="text-[15vw] text-black dark:text-white  transition-colors duration-500">
               Our
             </h1>
           </div>
           <div className="overflow-hidden">
-            <h1 ref={textTwoRef} className="text-[15vw] text-black font-bold">
+            <h1 ref={textTwoRef} className="text-[15vw] text-black dark:text-white transition-colors duration-500">
               Products
             </h1>
           </div>
