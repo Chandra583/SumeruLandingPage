@@ -60,16 +60,50 @@ const TechStack = () => {
       }, "<0.2");
     });
 
-    // Add animation for the right side content
-    tl.to('.right-content', {
-      opacity: 1,
-      duration: 1
-    }, "<0.5");
+    // Initial state for cards
+    gsap.set('.first-card', { opacity: 1, y: 0 });
+    gsap.set('.second-card', { 
+      opacity: 0, 
+      y: 200
+    });
+
+    // Separate timeline for right content cards
+    const rightContentTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.right-content',
+        start: 'top center',
+        end: '+=250%', // Increased scroll distance
+        scrub: true,
+        markers: true
+      }
+    });
+
+    // Right content card animations
+    rightContentTl
+      // First card stays visible for longer
+      .to('.first-card', {
+        opacity: 1,  // Stays fully visible
+        y: 0,        // Stays in place
+        duration: 4  // Extended duration
+      })
+      // Then fades out
+      .to('.first-card', {
+        opacity: 0,
+        y: -50,
+        duration: 3
+      })
+      // Second card animation
+      .to('.second-card', {
+        opacity: 1,
+        y: 0,
+        duration: 4
+      }, '>');
 
     // Cleanup
     return () => {
       lenis.destroy();
       tl.kill();
+      rightContentTl.kill();
     };
   }, []);
 
@@ -133,12 +167,13 @@ const TechStack = () => {
           display: 'flex',
           flexDirection: 'column'
         }}>
-          <div className={styles.rightInner} style={{ color: '#ffffff' }}>
-            {/* <h3>Our Technology Expertise</h3>
-            <p>We leverage cutting-edge technologies to build innovative solutions</p> */}
-            
-            {/* Radial Gradient Color */}
-            <div className={styles.radialGradient} style={{
+          <div className={styles.rightInner} style={{ color: '#ffffff', position: 'relative' }}>
+            {/* First Card */}
+            <div className={`${styles.radialGradient} first-card`} style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
               background: 'radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.1) 100%)',
               borderRadius: '12px',
               padding: '20px',
@@ -149,6 +184,26 @@ const TechStack = () => {
               <h4 style={{ marginBottom: '10px' }}>Technology Expertise</h4>
               <p style={{ fontSize: '0.9rem', lineHeight: '1.5' }}>
                 We leverage cutting-edge technologies to build innovative solutions.
+              </p>
+            </div>
+
+            {/* Second Card */}
+            <div className={`${styles.radialGradient} second-card`} style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              opacity: 0,
+              background: 'radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.1) 100%)',
+              borderRadius: '12px',
+              padding: '20px',
+              margin: '20px 0',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.1)'
+            }}>
+              <h4 style={{ marginBottom: '10px' }}>Future Technologies</h4>
+              <p style={{ fontSize: '0.9rem', lineHeight: '1.5' }}>
+                Exploring the next generation of tech solutions.
               </p>
             </div>
           </div>
