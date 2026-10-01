@@ -75,7 +75,7 @@ const HeroSection = () => {
         //   overflow: "hidden", // Ensures the border-radius affects children
         // }}
       >
-        <Spline scene="https://prod.spline.design/hCf5LpoqFfn6FgmY/scene.splinecode" />
+        {/* <Spline scene="https://prod.spline.design/hCf5LpoqFfn6FgmY/scene.splinecode" /> */}
       </div>
 
 {/* Custom Animation Styles */}
